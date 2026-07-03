@@ -877,6 +877,20 @@ html.dark .btn-primary {
     opacity: 1;
 }
 
+.case-prd-link {
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-accent);
+    transition: opacity 180ms ease;
+}
+
+.case-prd-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
 .case-challenge {
     font-size: var(--text-base);
     color: var(--color-text-muted);
