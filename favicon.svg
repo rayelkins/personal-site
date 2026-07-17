@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .bg { fill: #0f1117; }
+      .r {
+        fill: none;
+        stroke: #00d4d4;
+        stroke-width: 13;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      @media (prefers-color-scheme: light) {
+        .bg { fill: #f7f6f2; }
+        .r { stroke: #008080; }
+      }
+    </style>
+  </defs>
+  <!-- Rounded square background -->
+  <rect class="bg" x="0" y="0" width="100" height="100" rx="18" ry="18"/>
+  <!--
+    Stroke-based R lettermark:
+    1. Stem: bottom (28,76) up to top (28,24)
+    2. Top bar + bowl: right to (50,24), cubic bezier curves around the bowl to (50,62), back left to (28,62)
+    3. Leg: diagonal from (48,62) down to (66,76)
+  -->
+  <path class="r" d="
+    M 26,80
+    L 26,20
+    L 50,20
+    C 63,20 72,28 72,38
+    C 72,48 63,54 50,54
+    L 26,54
+    M 46,54
+    L 68,80
+  "/>
+</svg>

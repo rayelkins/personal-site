@@ -70,8 +70,31 @@ function setupExperienceToggle() {
     }
 }
 
+function setupScrollReveal() {
+    // Exclude #hero — it's above the fold on load
+    const sections = document.querySelectorAll('section:not(#hero)');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // fire once
+            }
+        });
+    }, {
+        threshold: 0.08,        // trigger when 8% of section is visible
+        rootMargin: '0px 0px -40px 0px'  // 40px before bottom of viewport
+    });
+
+    sections.forEach(section => {
+        section.classList.add('reveal');
+        observer.observe(section);
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     setupThemeToggle();
     setupNavigation();
     setupExperienceToggle();
+    setupScrollReveal();
 });
