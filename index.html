@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
-    <title>Ray Elkins — AWS Solutions Architect & Technical Product Manager</title>
+    <title>Ray Elkins — AWS Solutions Architect &amp; Technical Product Manager</title>
 
     <!-- F-09: SEO Meta -->
     <meta name="robots" content="index, follow">
@@ -15,7 +15,7 @@
         content="Ray Elkins is a Sr. Technology &amp; Product Leader and MBA in San Diego, CA — 25 years of cloud infrastructure, $146M in influenced ARR, AWS re:Invent speaker, agentic AI builder.">
 
     <!-- F-09: Open Graph -->
-    <meta property="og:title" content="Ray Elkins — AWS Solutions Architect & Technical Product Manager" />
+    <meta property="og:title" content="Ray Elkins — AWS Solutions Architect &amp; Technical Product Manager" />
     <meta property="og:description"
         content="Ray Elkins is a Sr. Technology &amp; Product Leader and MBA in San Diego, CA — 25 years of cloud infrastructure, $146M in influenced ARR, AWS re:Invent speaker, agentic AI builder." />
     <meta property="og:type" content="website" />
@@ -25,7 +25,7 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:alt" content="Ray Elkins — Sr. Technology & Product Leader" />
+    <meta property="og:image:alt" content="Ray Elkins — Sr. Technology &amp; Product Leader" />
     <meta name="author" content="Ray Elkins" />
     <meta property="article:author" content="Ray Elkins" />
     <meta property="article:published_time" content="2026-01-15T00:00:00Z" />
@@ -62,17 +62,16 @@
     }
     </script>
 
-    <!-- F-08 Dark Mode Initializer to prevent FOUC -->
+    <!-- FOUC Prevention: dark-default, add .light only if stored as light -->
     <script>
         (function () {
-            const storedTheme = localStorage.getItem('theme');
-            if (storedTheme === 'dark' || (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
+            try {
+                const stored = localStorage.getItem('theme');
+                if (stored === 'light') document.documentElement.classList.add('light');
+            } catch (e) {}
         })();
     </script>
+
     <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&f[]=general-sans@400,500,600&display=swap"
         rel="stylesheet">
@@ -80,697 +79,484 @@
 </head>
 
 <body>
-    <nav id="main-nav" class="nav">
-        <div class="nav-container">
-            <a href="#hero" class="nav-logo">Ray Elkins</a>
-            <div class="nav-links">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#work" class="nav-link">Work</a>
-                <a href="#recognition" class="nav-link">Awards</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <!-- F-10: BLOG SECTION LINK -->
-                <!-- <a href="#writing" class="nav-link">Writing</a> -->
+
+<!-- Hidden accessible h1 for screen readers -->
+<h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Ray Elkins - Technical Product Leader &amp; Cloud Architect</h1>
+
+<!-- Ambient Background -->
+<div class="ambient-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+</div>
+<div class="noise"></div>
+
+<!-- Floating Pill Nav -->
+<nav class="nav-pill" aria-label="Site navigation">
+    <a href="#hero" class="active">Home</a>
+    <a href="#metrics">Impact</a>
+    <a href="#experience">Experience</a>
+    <a href="#work">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+    <!-- F-10: Blog nav slot — v1.1 ready -->
+    <!-- <a href="#writing">Writing</a> -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+        </svg>
+        <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+        </svg>
+    </button>
+</nav>
+
+<div class="content">
+
+    <!-- HERO -->
+    <section id="hero" class="hero">
+        <div class="hero-top">
+            <div class="hero-photo">
+                <div class="hero-photo-inner">
+                    <img src="./headshot.png"
+                        alt="Ray Elkins — Senior AWS Solutions Architect and Technical Product Manager based in San Diego, CA"
+                        width="112" height="112" />
+                </div>
             </div>
-            <div class="nav-actions">
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                    <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
-                        </path>
-                    </svg>
-                    <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
-                        </path>
-                    </svg>
-                </button>
-                <a href="/resume.pdf" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Resume</a>
-                <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Open menu">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+            <div class="hero-status">
+                <span class="status-dot"></span>
+                San Diego, CA &middot; Open to select opportunities
             </div>
         </div>
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="mobile-menu">
-            <div class="mobile-links">
-                <a href="#about" class="nav-link mobile-nav-link">About</a>
-                <a href="#experience" class="nav-link mobile-nav-link">Experience</a>
-                <a href="#skills" class="nav-link mobile-nav-link">Skills</a>
-                <a href="#work" class="nav-link mobile-nav-link">Work</a>
-                <a href="#recognition" class="nav-link mobile-nav-link">Awards</a>
-                <a href="#contact" class="nav-link mobile-nav-link">Contact</a>
-                <!-- F-10: BLOG SECTION LINK -->
-                <!-- <a href="#writing" class="nav-link mobile-nav-link">Writing</a> -->
+
+        <div class="hero-name reveal">Technical Product Leader.</div>
+        <div class="hero-subtitle reveal">Cloud Architecture &times; Product Strategy &times; AI.</div>
+        <div class="hero-tagline reveal">// 25 years building enterprise systems. $146M in influenced ARR.</div>
+        <p class="hero-body reveal">
+            I bring deep enterprise cloud and security experience into product strategy — from platform foundations
+            to AI-native workflows. I tackle complex business problems and architect the right technical solutions
+            to solve them.
+        </p>
+        <div class="hero-ctas reveal">
+            <a href="mailto:elkinsrayo@gmail.com" class="btn btn-primary">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                Email me
+            </a>
+            <a href="https://www.linkedin.com/in/ray-elkins/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
+                </svg>
+                LinkedIn
+            </a>
+            <a href="/resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+                Resume &darr;
+            </a>
+        </div>
+    </section>
+
+    <!-- BENTO METRICS -->
+    <section id="metrics" class="section">
+        <div class="section-label">Impact</div>
+        <h2 class="section-heading reveal">Numbers that matter.</h2>
+        <div class="bento-grid reveal-stagger">
+            <div class="bento-card span-2">
+                <div class="bento-metric">$146M</div>
+                <div class="bento-label">Influenced ARR</div>
+                <div class="bento-sublabel">NAMER Security Enablement Program</div>
+            </div>
+            <div class="bento-card">
+                <div class="bento-metric">250%</div>
+                <div class="bento-label">YoY Program Growth</div>
+                <div class="bento-sublabel">Sustained CSAT</div>
+            </div>
+            <div class="bento-card">
+                <div class="bento-metric">4.7</div>
+                <div class="bento-label">Speaker Rating</div>
+                <div class="bento-sublabel">191 events &middot; /5.0</div>
+            </div>
+            <div class="bento-card">
+                <div class="bento-metric">🏆</div>
+                <div class="bento-label">1st Place</div>
+                <div class="bento-sublabel">AWS Hackathon &middot; 283 participants</div>
+            </div>
+            <div class="bento-card">
+                <div class="bento-metric">MBA</div>
+                <div class="bento-label">Product Strategy</div>
+                <div class="bento-sublabel">Cal State San Marcos</div>
+            </div>
+            <div class="bento-card">
+                <div class="bento-metric">4x</div>
+                <div class="bento-label">AWS Certifications</div>
+                <div class="bento-sublabel">Professional + Specialty</div>
+            </div>
+            <div class="bento-card">
+                <div class="bento-metric">19K+</div>
+                <div class="bento-label">Customers Reached</div>
+                <div class="bento-sublabel">5,800+ accounts annually</div>
             </div>
         </div>
-    </nav>
+    </section>
 
-    <main id="app">
-        <!-- F-02 Hero Section -->
-        <section id="hero" class="hero">
-            <div class="container hero-content">
-                <div class="hero-intro">
-                    <img src="./headshot.png" alt="Ray Elkins — Senior AWS Solutions Architect and Technical Product Manager based in San Diego, CA" class="hero-photo" width="160" height="160" />
-                    <div class="hero-location">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" style="margin-right:4px;">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
-                            </path>
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z">
-                            </path>
-                        </svg>
-                        San Diego, CA &nbsp;&middot;&nbsp;
-                        <span class="hero-status-dot" style="margin-left:6px;"></span> Open to connect
-                    </div>
+    <!-- EXPERIENCE TIMELINE -->
+    <section id="experience" class="section">
+        <div class="section-label">Experience</div>
+        <h2 class="section-heading reveal">Where I've built.</h2>
+        <div class="timeline reveal">
+
+            <!-- AWS -->
+            <div class="timeline-item">
+                <div class="timeline-dates">Jan 2021 – Present</div>
+                <div class="timeline-title">Senior Solutions Architect</div>
+                <div class="timeline-company">Amazon Web Services (AWS) &middot; San Diego, CA</div>
+                <ul class="timeline-bullets">
+                    <li>Own product strategy and execution for AWS Security Activation Day — a NAMER-wide program reaching 18,000+ attendees from 5,800+ customers annually, directly contributing to $146M in influenced ARR, $53.9M in launched ARR, and 4.67/5.0 CSAT across 191 events</li>
+                    <li>Scaled program reach 250% year-over-year while sustaining customer satisfaction</li>
+                    <li>Partner with AWS Security service teams to convert field intelligence into product decisions, including authoring a PRD for a user attestation and auditing feature that strengthened compliance posture across customer identity workflows</li>
+                    <li>Mentor 7 Solutions Architects and serve as bar raiser across 22+ candidate assessments and 19 interview loops</li>
+                </ul>
+                <span class="timeline-award">🏆 Won "Be the Agentic Builder" Hackathon — 1st place out of 283 participants across 71 teams</span>
+            </div>
+
+            <!-- Cisco -->
+            <div class="timeline-item">
+                <div class="timeline-dates">Nov 2015 – Jan 2021</div>
+                <div class="timeline-title">Senior Systems Architect</div>
+                <div class="timeline-company">Cisco Systems &middot; San Diego, CA</div>
+                <ul class="timeline-bullets">
+                    <li>Served as field product partner on Cisco's Duo MFA post-acquisition tiger team — validated product-market fit, surfaced deployment friction, and shaped GTM execution frameworks for a newly integrated security platform</li>
+                    <li>Translated discovery insights from 35 Systems Architects across the Western region into deployment patterns that contributed to ~50% growth in security bookings within 3 quarters</li>
+                    <li>Advised executive stakeholders on architectural trade-offs across $15M+ in complex enterprise engagements</li>
+                </ul>
+                <span class="timeline-award">🏆 Systems Architect of the Year (2019)</span>
+            </div>
+
+            <!-- ConvergeOne -->
+            <div class="timeline-item">
+                <div class="timeline-dates">Nov 2003 – Nov 2015</div>
+                <div class="timeline-title">Senior Systems Engineer / Pre-Sales Architect</div>
+                <div class="timeline-company">ConvergeOne (C1) &middot; San Diego, CA</div>
+                <ul class="timeline-bullets">
+                    <li>Owned a 10-year product lifecycle for a mission-critical unified communications platform serving 19,000+ users across 36 County of San Diego departments — managing roadmap evolution, feature prioritization, and stakeholder alignment across multiple budget cycles</li>
+                    <li>Translated complex operational requirements from diverse government personas into multi-phase deployment roadmaps balancing compliance, continuity, and scalability</li>
+                    <li>Served as long-term strategic technical advisor to county executive leadership across successive administrations</li>
+                </ul>
+            </div>
+
+            <!-- Earlier roles (collapsed) -->
+            <div class="earlier-roles" id="earlier-roles">
+                <div class="timeline-item-compact">
+                    <div class="timeline-dates">Oct 2000 – Nov 2003</div>
+                    <div class="timeline-title">Senior Systems Engineer</div>
+                    <div class="timeline-company">Avaya Inc. &middot; San Diego, CA</div>
+                    <ul class="timeline-bullets">
+                        <li>Voice-of-customer liaison between enterprise clients and Avaya product development, channeling field requirements into product roadmap cycles</li>
+                        <li>Delivered enterprise telephony and communications architecture across mid-market and enterprise accounts in the Southwest region</li>
+                    </ul>
                 </div>
-                <h1 class="sr-only">Ray Elkins — Senior Solutions Architect &amp; Technical Product Manager</h1>
-                <p class="hero-title">
-                    <span class="hero-title-1">Sr. Technology &amp; Product Leader</span>
-                    <span class="hero-title-2">Technical depth. Business breadth. Proven results.</span>
-                    <span class="hero-title-3">Cloud Architect. Product Strategist. AI Builder.</span>
+                <div class="timeline-item-compact">
+                    <div class="timeline-dates">Aug 1998 – Oct 2000</div>
+                    <div class="timeline-title">Project Manager / Design Specialist</div>
+                    <div class="timeline-company">Lucent Technologies &middot; San Diego, CA</div>
+                    <ul class="timeline-bullets">
+                        <li>Managed end-to-end project delivery and technical design for enterprise telecommunications deployments</li>
+                        <li>Coordinated cross-functional teams from design through customer acceptance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <button class="earlier-roles-toggle" id="toggle-earlier" aria-expanded="false">
+                Show earlier roles ↓
+            </button>
+
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="work" class="section">
+        <div class="section-label">Projects</div>
+        <h2 class="section-heading reveal">What I've shipped.</h2>
+        <div class="projects-grid reveal-stagger">
+
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">AWS Security Activation Day</div>
+                    <span class="project-badge">$146M ARR</span>
+                </div>
+                <p class="project-problem">
+                    Scale a North America-wide cloud security field motion to drive measurable enterprise customer activation — without sacrificing the customer experience that made it credible.
                 </p>
-                <p class="hero-body">
-                    I'm a Senior AWS Solutions Architect at Amazon Web Services in San Diego, CA.
-                    I bring 25 years of enterprise cloud and security depth into product strategy, from platform
-                    foundations to AI-native workflows. I tackle complex business problems and architect the right
-                    technical solutions to solve them.
+                <div class="project-approach">
+                    <div class="project-approach-label">Approach</div>
+                    <ul class="project-approach-list">
+                        <li>Single-threaded leader for NAMER Security Activation Day: end-to-end planning, scheduling, and speaker advisory</li>
+                        <li>Designed structured operating frameworks for discovery, architecture validation, and technical decision-making</li>
+                        <li>Defined program KPIs: CSAT, revenue attribution, field participation rates, and time-to-productivity benchmarks</li>
+                        <li>Coordinated dozens of Solutions Architects across multiple teams to execute 191 events annually at consistent quality</li>
+                    </ul>
+                </div>
+                <div class="project-result">
+                    <div class="project-result-metric">
+                        <span class="project-result-value">$146M</span>
+                        <span class="project-result-label">Influenced ARR</span>
+                    </div>
+                    <div class="project-result-metric">
+                        <span class="project-result-value">4.7/5.0</span>
+                        <span class="project-result-label">CSAT</span>
+                    </div>
+                    <div class="project-result-metric">
+                        <span class="project-result-value">250%</span>
+                        <span class="project-result-label">YoY Growth</span>
+                    </div>
+                </div>
+                <div class="project-tags">
+                    <span class="project-tag">AWS Security</span>
+                    <span class="project-tag">Program Strategy</span>
+                    <span class="project-tag">GTM</span>
+                    <span class="project-tag">KPI Design</span>
+                    <span class="project-tag">Voice of Customer</span>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">Agentic Fleet Management</div>
+                    <span class="project-badge">🏆 1st Place</span>
+                </div>
+                <p class="project-problem">
+                    Design a working Agentic AI prototype targeting systemic Transportation &amp; Logistics inefficiencies, pitched "Shark Tank" style to AWS executive leadership.
                 </p>
-                <div class="hero-ctas">
-                    <a href="mailto:elkinsrayo@gmail.com" class="btn btn-primary btn-icon">
-                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                            </path>
-                        </svg>
-                        Email me
-                    </a>
-                    <a href="/resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
-                        <svg class="icon-left" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                        </svg>
-                        Download Resume
-                    </a>
+                <div class="project-approach">
+                    <div class="project-approach-label">Approach</div>
+                    <ul class="project-approach-list">
+                        <li>Conducted targeted market research on logistics fleet management to uncover systemic inefficiencies and define high-value automation use-cases</li>
+                        <li>Authored the strategic executive pitch: problem statement, TAM, growth projections, and product KPIs</li>
+                        <li>Implemented autonomous decision agents on AWS Bedrock with safety constraints and observable outputs</li>
+                        <li>Delivered the winning presentation to Senior and Director management alongside 250 peers</li>
+                    </ul>
+                </div>
+                <div class="project-result">
+                    <div class="project-result-metric">
+                        <span class="project-result-value">1st / 71</span>
+                        <span class="project-result-label">Teams</span>
+                    </div>
+                    <div class="project-result-metric">
+                        <span class="project-result-value">283</span>
+                        <span class="project-result-label">Participants</span>
+                    </div>
+                </div>
+                <div class="project-tags">
+                    <span class="project-tag">Agentic AI</span>
+                    <span class="project-tag">AWS Bedrock</span>
+                    <span class="project-tag">MCP</span>
+                    <span class="project-tag">Market Research</span>
+                    <span class="project-tag">Pitch Strategy</span>
                 </div>
             </div>
-        </section>
 
-        <!-- F-03 About Section -->
-        <section id="about" class="section about">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">ABOUT</span>
-                    <h2 class="section-heading">Who I Am</h2>
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">Secrets Manager Access Audit Tool</div>
+                    <span class="project-badge">aws-samples</span>
                 </div>
-                <div class="about-grid">
-                    <div class="about-content">
-                        <p>I'm a Technical Product Leader and cloud architect with 25 years of experience building
-                            enterprise systems and shaping the product strategies that scale them. I've spent my career
-                            at companies like AWS and Cisco, focusing first on complex business challenges and seeking
-                            out the appropriately scaled technical solutions to meet them.</p>
-                        <p>At Cisco, I served on the post-acquisition tiger team for Duo MFA, partnering directly with
-                            Product Management and Engineering to validate product-market fit, shape go-to-market
-                            execution frameworks, and drive adoption strategies that contributed to approximately 50%
-                            growth in security bookings within three quarters. At AWS, I led a North America-wide
-                            program that contributed to $146M in influenced ARR across nearly 19,000 customers. I don't
-                            just architect systems. I build the products and programs around them that drive measurable
-                            results.</p>
-                        <p>I hold an MBA in Product Strategy and Technology Management from Cal State San Marcos and
-                            four AWS professional and specialty certifications. I'm based in San Diego and focused on
-                            Technical Leadership and Product Management.</p>
-                    </div>
-                    <div class="about-stats">
-                        <div class="stat-card">
-                            <div class="stat-val">250%</div>
-                            <div class="stat-label">YoY program reach growth with sustained CSAT</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-val">$146M</div>
-                            <div class="stat-label">Influenced ARR — NAMER Security Enablement Program</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-val">4.7/5.0</div>
-                            <div class="stat-label">Personal speaking rating across 191 events</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-val">MBA</div>
-                            <div class="stat-label">CSUSM — Product Strategy & Technology Mgmt</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- F-04 Experience Section -->
-        <section id="experience" class="section experience">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">EXPERIENCE</span>
-                    <h2 class="section-heading">Where I've worked</h2>
-                </div>
-                <div class="timeline">
-                    <!-- Item 1 - AWS -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3 class="timeline-title">Senior Solutions Architect</h3>
-                                <div class="timeline-date">Jan 2021 – Present</div>
-                            </div>
-                            <div class="timeline-company">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
-                                </svg>
-                                Amazon Web Services (AWS) <span class="timeline-location">&bull; San Diego, CA</span>
-                            </div>
-                            <ul class="timeline-bullets">
-                                <li>Own product strategy and execution for AWS Security Activation Day - a North
-                                    America-wide program reaching 18,000+ attendees from 5,800+ customers annually,
-                                    directly contributing to $146M in influenced ARR, $53.9M in launched ARR, and
-                                    4.7/5.0 CSAT across 191 events</li>
-                                <li>Scaled program reach 250% year-over-year while sustaining customer satisfaction -
-                                    proof that growth and experience quality are not mutually exclusive</li>
-                                <li>Partner with AWS Security service teams to convert field intelligence into product
-                                    decisions, including authoring a PRD for a user attestation and auditing feature
-                                    that strengthened compliance posture across customer identity workflows</li>
-                                <li>Mentor 7 Solutions Architects and serve as bar raiser across 22+ candidate
-                                    assessments and 19 interview loops - maintaining a high technical and cultural
-                                    standard as the organization scales</li>
-                            </ul>
-                            <div class="achievement-callout">
-                                🏆 Won AWS "Be the Agentic Builder" Hackathon (2025) - 1st place out of 283 participants
-                                across 71 teams; built a 0-to-1 agentic fleet management product from customer problem
-                                identification through working prototype using AWS Bedrock, autonomous decision agents,
-                                and explainability guardrails
-                            </div>
-                            <div class="tech-badges">
-                                <span class="badge">AWS Security</span>
-                                <span class="badge">Program Strategy</span>
-                                <span class="badge">PRD Authorship</span>
-                                <span class="badge">Agentic AI</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Item 2 - Cisco -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3 class="timeline-title">Senior Systems Architect</h3>
-                                <div class="timeline-date">Nov 2015 – Jan 2021</div>
-                            </div>
-                            <div class="timeline-company">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <path
-                                        d="M12 4v5 M10 7l2 2 2-2 M12 20v-5 M10 17l2-2 2 2 M4 12h5 M7 10l2 2-2 2 M20 12h-5 M17 10l-2 2 2 2" />
-                                </svg>
-                                Cisco Systems <span class="timeline-location">&bull; San Diego, CA</span>
-                            </div>
-                            <ul class="timeline-bullets">
-                                <li>Served as field product partner on Cisco's Duo MFA post-acquisition tiger team -
-                                    validated product-market fit, surfaced deployment friction, and shaped GTM execution
-                                    frameworks for a newly integrated security platform</li>
-                                <li>Translated discovery insights from 35 Systems Architects across the Western region
-                                    into deployment patterns and enablement content that contributed to ~50% growth in
-                                    security bookings within 3 quarters</li>
-                                <li>Advised executive stakeholders on architectural trade-offs across $15M+ in complex
-                                    enterprise engagements - balancing security posture, cost models, integration
-                                    sequencing, and long-term platform maintainability</li>
-                            </ul>
-                            <div class="achievement-callout">
-                                🏆 Systems Architect of the Year (2019) &nbsp;&middot;&nbsp;
-                                Cisco Culture Award (2020) &nbsp;&middot;&nbsp;
-                                Cloud Security Champion (2018)
-                            </div>
-                            <div class="tech-badges">
-                                <span class="badge">Cisco Security</span>
-                                <span class="badge">GTM Strategy</span>
-                                <span class="badge">Enterprise Architecture</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Item 3 - ConvergeOne -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3 class="timeline-title">Senior Systems Engineer / Pre-Sales Architect</h3>
-                                <div class="timeline-date">Nov 2003 – Nov 2015</div>
-                            </div>
-                            <div class="timeline-company">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="9" cy="7" r="4"></circle>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                </svg>
-                                ConvergeOne (C1) <span class="timeline-location">&bull; San Diego, CA</span>
-                            </div>
-                            <ul class="timeline-bullets">
-                                <li>Owned a 10-year product lifecycle for a mission-critical unified communications
-                                    platform serving 19,000+ users across 36 County of San Diego departments - managing
-                                    roadmap evolution, feature prioritization, stakeholder alignment, and technical
-                                    governance across multiple budget cycles</li>
-                                <li>Translated complex operational requirements from diverse government personas - via
-                                    site surveys, stakeholder interviews, and infrastructure assessments - into
-                                    multi-phase deployment roadmaps that balanced compliance, continuity, and
-                                    scalability</li>
-                                <li>Served as long-term strategic technical advisor to county executive leadership,
-                                    aligning platform decisions with operational priorities and multi-year budget
-                                    constraints across successive administrations</li>
-                            </ul>
-                            <div class="tech-badges">
-                                <span class="badge">UC Platforms</span>
-                                <span class="badge">Government IT</span>
-                                <span class="badge">Product Lifecycle</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Collapsible Earlier Roles -->
-                    <div id="earlier-roles" class="experience-hidden">
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-header">
-                                    <h3 class="timeline-title">Senior Systems Engineer</h3>
-                                    <div class="timeline-date">Oct 2000 – Nov 2003</div>
-                                </div>
-                                <div class="timeline-company">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path
-                                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                                        </path>
-                                    </svg>
-                                    Avaya Inc. <span class="timeline-location">&bull; San Diego, CA</span>
-                                </div>
-                                <ul class="timeline-bullets">
-                                    <li>Bridged enterprise clients and Avaya product development as a voice-of-customer
-                                        liaison - channeling real-world field requirements directly into product roadmap
-                                        feedback cycles</li>
-                                    <li>Delivered enterprise telephony and communications architecture across mid-market
-                                        and enterprise accounts in the Southwest region</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-header">
-                                    <h3 class="timeline-title">Project Manager / Design Specialist</h3>
-                                    <div class="timeline-date">Aug 1998 – Oct 2000</div>
-                                </div>
-                                <div class="timeline-company">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="2"></circle>
-                                        <path
-                                            d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48 0a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14">
-                                        </path>
-                                    </svg>
-                                    Lucent Technologies <span class="timeline-location">&bull; San Diego, CA</span>
-                                </div>
-                                <ul class="timeline-bullets">
-                                    <li>Managed end-to-end project delivery and technical design for enterprise
-                                        telecommunications deployments - coordinating cross-functional teams from design
-                                        through customer acceptance</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <button id="toggle-experience-btn" class="toggle-experience-btn">Show earlier roles &darr;</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- F-05 Skills Section -->
-        <section id="skills" class="section skills">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">SKILLS</span>
-                    <h2 class="section-heading">What I bring to the table</h2>
-                </div>
-
-                <div class="skills-wrapper">
-                    <div class="skills-grid">
-                        <div class="skills-group">
-                            <h4 class="skills-group-title">Cloud & Infrastructure</h4>
-                            <div class="skills-list">
-                                <span class="skill-pill">AWS</span><span class="skill-pill">IaC</span><span
-                                    class="skill-pill">Hybrid Cloud</span><span class="skill-pill">Cloud
-                                    Migration</span>
-                            </div>
-                        </div>
-                        <div class="skills-group">
-                            <h4 class="skills-group-title">AI & Emerging Technology</h4>
-                            <div class="skills-list">
-                                <span class="skill-pill">Agentic AI</span><span class="skill-pill">Amazon
-                                    Bedrock</span><span class="skill-pill">Google Antigravity</span><span
-                                    class="skill-pill">Claude Code</span><span class="skill-pill">Kiro</span><span
-                                    class="skill-pill">AI
-                                    Product Strategy</span>
-                            </div>
-                        </div>
-                        <div class="skills-group">
-                            <h4 class="skills-group-title">Security & Compliance</h4>
-                            <div class="skills-list">
-                                <span class="skill-pill">Threat Detection</span><span
-                                    class="skill-pill">Identity</span><span class="skill-pill">Zero Trust
-                                    Architecture</span><span class="skill-pill">NIST</span><span class="skill-pill">AWS
-                                    Security Reference Architecture</span>
-                            </div>
-                        </div>
-                        <div class="skills-group">
-                            <h4 class="skills-group-title">Product & Program Management</h4>
-                            <div class="skills-list">
-                                <span class="skill-pill">Technical Product Management</span><span
-                                    class="skill-pill">Product
-                                    Discovery</span><span class="skill-pill">Go-to-Market Strategy</span><span
-                                    class="skill-pill">Stakeholder Alignment</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- F-06 Work Section -->
-        <section id="work" class="section work">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">WORK</span>
-                    <h2 class="section-heading">Programs &amp; Projects</h2>
-                </div>
-
-                <div class="work-grid">
-                    <div class="case-card">
-                        <h3 class="case-title">AWS Security Activation Day</h3>
-                        <div class="case-challenge">Scale a North America-wide cloud security field motion to drive
-                            measurable enterprise customer activation — without sacrificing the customer experience that
-                            made it credible.</div>
-                        <h4 class="case-approach-title">Approach</h4>
-                        <ul class="case-approach-list">
-                            <li>Served as the single-threaded leader for NAMER Security Activation Day, orchestrating
-                                all end-to-end planning, scheduling, and speaker advisory</li>
-                            <li>Designed structured operating frameworks for discovery, architecture validation, and
-                                technical decision-making</li>
-                            <li>Defined program KPIs — CSAT, revenue attribution, field participation rates, and
-                                time-to-productivity benchmarks</li>
-                        </ul>
-                        <div class="case-outcome-card">
-                            <div class="case-outcome-val">$146M</div>
-                            <div class="case-outcome-desc">Influenced ARR &middot; 4.7/5.0 CSAT &middot; 250% YoY growth
-                            </div>
-                        </div>
-                        <div class="case-tags">
-                            <span class="badge">AWS Security</span><span class="badge">Program Strategy</span><span
-                                class="badge">Program Leadership</span>
-                        </div>
-                    </div>
-
-                    <div class="case-card">
-                        <h3 class="case-title">Agentic Fleet Management</h3>
-                        <div class="case-challenge">Design a working Agentic AI prototype (using Bedrock and MCP)
-                            targeting systemic Transportation &amp; Logistics inefficiencies, pitched "Shark Tank" style
-                            to AWS executive leadership.
-                        </div>
-                        <h4 class="case-approach-title">Approach</h4>
-                        <ul class="case-approach-list">
-                            <li>Conducted targeted market research on logistics fleet management to uncover systemic
-                                inefficiencies and define high-value Agentic AI automation use-cases</li>
-                            <li>Authored the strategic executive pitch, framing the core problem statement, Total
-                                Addressable Market (TAM), growth projections, and product KPIs</li>
-                            <li>Delivered the winning presentation to Senior and Director management of the AWS
-                                Enterprise segment, alongside 250 peers from across segment teams</li>
-                        </ul>
-                        <div class="case-outcome-card">
-                            <div class="case-outcome-val">🏆 1st Place</div>
-                            <div class="case-outcome-desc">AWS Hackathon · 283 participants · 71 teams</div>
-                        </div>
-                        <div class="case-tags">
-                            <span class="badge">Agentic AI</span><span class="badge">AWS Bedrock</span><span
-                                class="badge">MCP</span><span class="badge">Market Research</span><span
-                                class="badge">Pitch Strategy</span>
-                        </div>
-                    </div>
-
-                    <div class="case-card">
-                        <h3 class="case-title"><a href="https://github.com/aws-samples/sample-secrets-manager-audit" target="_blank" rel="noopener noreferrer" class="case-title-link">Secrets Audit Tool <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-left: 4px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></h3>
-                        <div class="case-challenge">Enterprise customers lacked the visibility across complex
-                            multi-account AWS environments to answer a critical audit question: <em>"Who has IAM
-                                permissions to access this specific secret, and what is the business justification for
-                                their access?"</em></div>
-                        <h4 class="case-approach-title">Approach</h4>
-                        <ul class="case-approach-list">
-                            <li>Authored a full PRD defining MVP scope, user personas, acceptance criteria, and success
-                                metrics</li>
-                            <li>Built a Python CLI tool with Identity Center cross-account resolution and compliance
-                                evidence generation</li>
-                        </ul>
-                        <div class="case-outcome-card">
-                            <div class="case-outcome-val">Unified Audit Visibility</div>
-                            <div class="case-outcome-desc">Eliminated manual compliance-gathering across multi-account
-                                AWS environments, drastically reducing enterprise security review cycles. Published under
-                                aws-samples and demonstrated at Secrets Management Activation Days.</div>
-                        </div>
-                        <div style="margin-bottom: 1rem;">
-                            <a href="/prd-secrets-manager.html" class="case-prd-link" aria-label="Read the full PRD for the Secrets Audit Tool">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -2px; margin-right: 5px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                                View full PRD &rarr;
-                            </a>
-                        </div>
-                        <div class="case-tags">
-                            <span class="badge">Product Discovery</span><span class="badge">Compliance</span><span
-                                class="badge">Security</span>
-                        </div>
-                    </div>
-
-                    <div class="case-card">
-                        <h3 class="case-title"><a href="https://github.com/aws-samples/sample-kms-access-audit" target="_blank" rel="noopener noreferrer" class="case-title-link">KMS Access Audit Tool <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-left: 4px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></h3>
-                        <div class="case-challenge">Security and compliance teams had no way to answer <em>"who
-                                can use this KMS key?"</em> across IAM policies, key policies, and KMS grants in a
-                            single view, forcing manual, error-prone evidence gathering for SOC 2, PCI-DSS, and HIPAA
-                            audits.</div>
-                        <h4 class="case-approach-title">Approach</h4>
-                        <ul class="case-approach-list">
-                            <li>Identified the three-source access evaluation gap through field discovery with enterprise
-                                security teams</li>
-                            <li>Authored product requirements defining user attestation, audit evidence, and governance
-                                use cases with clear acceptance criteria</li>
-                            <li>Built a Python CLI tool that merges IAM simulation, key policy parsing, and grant
-                                enumeration with IAM Identity Center resolution to map SSO roles to human identities</li>
-                        </ul>
-                        <div class="case-outcome-card">
-                            <div class="case-outcome-val">Complete Key Access Visibility</div>
-                            <div class="case-outcome-desc">Resolves who can use any KMS key across IAM policies, key
-                                policies, and grants in a single command. Published under aws-samples and demonstrated at
-                                Data Encryption Activation Days.</div>
-                        </div>
-                        <div class="case-tags">
-                            <span class="badge">AWS KMS</span><span class="badge">Python</span><span
-                                class="badge">IAM</span><span class="badge">Compliance</span><span
-                                class="badge">Security</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- F-11 & F-12 Recognition & Certifications -->
-        <section id="recognition" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">RECOGNITION</span>
-                    <h2 class="section-heading">Impact beyond the role</h2>
-                </div>
-
-                <div class="speaking-grid">
-                    <div class="speaking-card">
-                        <div class="speaking-header">AWS re:Inforce 2023 Speaker</div>
-                        <div class="speaking-desc">Presented cloud security architecture strategies to practitioners and
-                            technical decision-makers at AWS's dedicated security conference.</div>
-                    </div>
-                    <div class="speaking-card">
-                        <div class="speaking-header">AWS re:Invent 2022 Speaker</div>
-                        <div class="speaking-desc">Presented threat detection platform capabilities; translated complex
-                            security product concepts into business-outcome narratives.</div>
-                    </div>
-                </div>
-
-                <div class="awards-grid">
-                    <div class="award-item">
-                        <div class="award-title">Technical Field Community Contributor</div>
-                        <div class="award-date">Dec 2023</div>
-                    </div>
-                    <div class="award-item">
-                        <div class="award-title">AWS Security Delivery Partner of the Year</div>
-                        <div class="award-date">2022</div>
-                    </div>
-                    <div class="award-item">
-                        <div class="award-title">AWS Field Community Technical Leader</div>
-                        <div class="award-date">2022</div>
-                    </div>
-                    <div class="award-item">
-                        <div class="award-title">Culture Award (Cisco)</div>
-                        <div class="award-date">Oct 2020</div>
-                    </div>
-                    <div class="award-item">
-                        <div class="award-title">Cloud Security Champion (Cisco)</div>
-                        <div class="award-date">2018</div>
-                    </div>
-                    <div class="award-item">
-                        <div class="award-title">Systems Architect of the Year (Cisco)</div>
-                        <div class="award-date">Jul 2019</div>
-                    </div>
-                    <div class="award-item">
-                        <div class="award-title">Cisco Partner Architect Excellence</div>
-                        <div class="award-date">2017</div>
-                    </div>
-                    <div class="award-item">
-                        <div class="award-title">ConvergeOne President's Club</div>
-                        <div class="award-date">2014</div>
-                    </div>
-                    <div class="award-item">
-                        <div class="award-title">ConvergeOne Top Systems Engineer</div>
-                        <div class="award-date">2012</div>
-                    </div>
-                </div>
-
-                <div class="section-header" style="margin-top: var(--space-12);">
-                    <span class="section-label">CREDENTIALS</span>
-                    <h2 class="section-heading">4 AWS Professional Certifications</h2>
-                </div>
-                <div class="certs-grid">
-                    <div class="cert-card">
-                        <div class="cert-icon"><svg width="24" height="24" fill="none" stroke="currentColor"
-                                stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M12 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"></path>
-                            </svg></div>
-                        <div>
-                            <div class="cert-name">AWS Certified Solutions Architect</div>
-                            <div class="cert-issuer">Professional</div>
-                        </div>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-icon"><svg width="24" height="24" fill="none" stroke="currentColor"
-                                stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M12 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"></path>
-                            </svg></div>
-                        <div>
-                            <div class="cert-name">AWS Certified Security</div>
-                            <div class="cert-issuer">Specialty</div>
-                        </div>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-icon"><svg width="24" height="24" fill="none" stroke="currentColor"
-                                stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M12 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"></path>
-                            </svg></div>
-                        <div>
-                            <div class="cert-name">AWS Certified DevOps Engineer</div>
-                            <div class="cert-issuer">Professional</div>
-                        </div>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-icon"><svg width="24" height="24" fill="none" stroke="currentColor"
-                                stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M12 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"></path>
-                            </svg></div>
-                        <div>
-                            <div class="cert-name">AWS Certified Advanced Networking</div>
-                            <div class="cert-issuer">Specialty</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- F-10: BLOG SECTION STUB -->
-        <!--
-        <section id="writing" class="section section--writing">
-          <div class="container">
-            <div class="section-header">
-              <span class="section-label">WRITING</span>
-              <h2 class="section-heading">Notes on AI & Infrastructure</h2>
-            </div>
-            <p style="color: var(--color-text-muted);">Content coming in v1.1...</p>
-          </div>
-        </section>
-        -->
-
-        <!-- F-07 Contact Section -->
-        <section id="contact" class="section">
-            <div class="container contact-content">
-                <div class="section-header">
-                    <span class="section-label">CONTACT</span>
-                    <h2 class="section-heading">Let's connect</h2>
-                </div>
-                <div class="contact-status">
-                    <span class="hero-status-dot" style="margin-right:8px;"></span> Open to connect
-                </div>
-                <p class="contact-body">
-                    I am open to strategic roles at the intersection of product management and solutions architecture.
-                    If
-                    you're building in the agentic AI or cloud infrastructure space and need someone who can translate
-                    complex enterprise realities into scalable product vision, we should talk.
+                <p class="project-problem">
+                    Enterprise customers lacked visibility across complex multi-account AWS environments to answer: "Who has IAM permissions to access this specific secret, and what is the business justification for their access?"
                 </p>
-                <div class="contact-actions">
-                    <a href="mailto:elkinsrayo@gmail.com" class="btn btn-primary btn-icon">
-                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                            </path>
-                        </svg>
-                        Email me
-                    </a>
-                    <a href="https://www.linkedin.com/in/ray-elkins/" target="_blank" rel="me noopener noreferrer"
-                        class="btn btn-ghost btn-icon">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                        </svg>
-                        LinkedIn
-                    </a>
-                    <a href="https://github.com/rayelkins" target="_blank" rel="me noopener noreferrer"
-                        class="btn btn-ghost btn-icon">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                        GitHub
-                    </a>
+                <div class="project-approach">
+                    <div class="project-approach-label">Approach</div>
+                    <ul class="project-approach-list">
+                        <li>Conducted customer discovery through structured interviews to surface the core audit gap</li>
+                        <li>Authored a full PRD defining MVP scope, user personas, acceptance criteria, and success metrics</li>
+                        <li>Built a Python CLI tool with Identity Center cross-account resolution, table/JSON/YAML output formats, and compliance evidence generation</li>
+                    </ul>
+                </div>
+                <div class="project-result">
+                    <div class="project-result-metric">
+                        <span class="project-result-value">Published</span>
+                        <span class="project-result-label">aws-samples</span>
+                    </div>
+                    <a href="/prd-secrets-manager.html" class="project-cta" target="_blank" rel="noopener noreferrer">View PRD &rarr;</a>
+                    <a href="https://github.com/aws-samples/aws-secrets-manager-access-audit" class="project-cta" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+                </div>
+                <div class="project-tags">
+                    <span class="project-tag">Product Discovery</span>
+                    <span class="project-tag">PRD Authorship</span>
+                    <span class="project-tag">Compliance</span>
+                    <span class="project-tag">Security</span>
+                    <span class="project-tag">Python</span>
                 </div>
             </div>
-        </section>
 
-        <footer>
-            <div class="container">
-                <p>&copy; 2026 Ray Elkins. Designed with restraint and built natively.</p>
+            <!-- Project 4 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">KMS Key Access Audit Tool</div>
+                    <span class="project-badge">aws-samples</span>
+                </div>
+                <p class="project-problem">
+                    Security teams had no way to answer "who can use this KMS key?" across IAM policies, key policies, and KMS grants in a single view — forcing manual evidence gathering for SOC 2, PCI-DSS, and HIPAA audits.
+                </p>
+                <div class="project-approach">
+                    <div class="project-approach-label">Approach</div>
+                    <ul class="project-approach-list">
+                        <li>Identified the three-source access evaluation gap through field discovery with enterprise security teams</li>
+                        <li>Authored product requirements defining user attestation, audit evidence, and governance use cases</li>
+                        <li>Built a Python CLI merging IAM simulation, key policy parsing, and grant enumeration with Identity Center resolution</li>
+                    </ul>
+                </div>
+                <div class="project-result">
+                    <div class="project-result-metric">
+                        <span class="project-result-value">Published</span>
+                        <span class="project-result-label">aws-samples</span>
+                    </div>
+                    <a href="https://github.com/aws-samples/aws-kms-key-usage-audit" class="project-cta" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+                </div>
+                <div class="project-tags">
+                    <span class="project-tag">AWS KMS</span>
+                    <span class="project-tag">Python</span>
+                    <span class="project-tag">IAM</span>
+                    <span class="project-tag">Compliance</span>
+                    <span class="project-tag">Security</span>
+                </div>
             </div>
-        </footer>
-    </main>
-    <script type="module" src="./main.js"></script>
+
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+        <div class="section-label">Capabilities</div>
+        <h2 class="section-heading reveal">What I bring.</h2>
+        <div class="skills-grid reveal-stagger">
+
+            <div class="skill-card">
+                <div class="skill-card-title">Cloud &amp; Infrastructure</div>
+                <div class="skill-pills">
+                    <span class="skill-pill">AWS (multi-service)</span>
+                    <span class="skill-pill">CloudFormation</span>
+                    <span class="skill-pill">Terraform</span>
+                    <span class="skill-pill">CDK</span>
+                    <span class="skill-pill">IaC</span>
+                    <span class="skill-pill">Kubernetes</span>
+                    <span class="skill-pill">Hybrid Cloud</span>
+                    <span class="skill-pill">Multi-cloud</span>
+                    <span class="skill-pill">FinOps</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-card-title">AI &amp; Emerging Technology</div>
+                <div class="skill-pills">
+                    <span class="skill-pill">Agentic AI</span>
+                    <span class="skill-pill">Amazon Bedrock</span>
+                    <span class="skill-pill">LLMs</span>
+                    <span class="skill-pill">Prompt Engineering</span>
+                    <span class="skill-pill">RAG</span>
+                    <span class="skill-pill">MCP</span>
+                    <span class="skill-pill">AI Product Strategy</span>
+                    <span class="skill-pill">Claude Code</span>
+                    <span class="skill-pill">Amazon Kiro</span>
+                    <span class="skill-pill">Cline</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-card-title">Security &amp; Compliance</div>
+                <div class="skill-pills">
+                    <span class="skill-pill">Zero Trust Architecture</span>
+                    <span class="skill-pill">IAM</span>
+                    <span class="skill-pill">Secrets Management</span>
+                    <span class="skill-pill">Threat Detection</span>
+                    <span class="skill-pill">DevSecOps</span>
+                    <span class="skill-pill">FedRAMP</span>
+                    <span class="skill-pill">SOC 2</span>
+                    <span class="skill-pill">NIST</span>
+                    <span class="skill-pill">Cloud Security Architecture</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-card-title">Product &amp; Program Management</div>
+                <div class="skill-pills">
+                    <span class="skill-pill">Technical PM</span>
+                    <span class="skill-pill">PRD Authorship</span>
+                    <span class="skill-pill">Product Discovery</span>
+                    <span class="skill-pill">Roadmapping</span>
+                    <span class="skill-pill">OKRs</span>
+                    <span class="skill-pill">Agile/Scrum</span>
+                    <span class="skill-pill">Voice of Customer</span>
+                    <span class="skill-pill">GTM Strategy</span>
+                    <span class="skill-pill">Stakeholder Alignment</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-card-title">Languages &amp; Tooling</div>
+                <div class="skill-pills">
+                    <span class="skill-pill">Python</span>
+                    <span class="skill-pill">Bash</span>
+                    <span class="skill-pill">YAML</span>
+                    <span class="skill-pill">Git</span>
+                    <span class="skill-pill">CI/CD</span>
+                    <span class="skill-pill">Docker</span>
+                    <span class="skill-pill">API Design</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-card-title">Leadership &amp; Enablement</div>
+                <div class="skill-pills">
+                    <span class="skill-pill">Solutions Engineering Leadership</span>
+                    <span class="skill-pill">Team Mentorship</span>
+                    <span class="skill-pill">Talent Development</span>
+                    <span class="skill-pill">Hiring &amp; Assessment</span>
+                    <span class="skill-pill">Executive Advisory</span>
+                    <span class="skill-pill">Presales Enablement</span>
+                    <span class="skill-pill">Program Governance</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact-section">
+        <div class="reveal">
+            <div class="section-label">Connect</div>
+            <h2 class="contact-heading">Let's build something together.</h2>
+            <p class="contact-sub">
+                Open to conversations about Technical Product Management, AI product strategy, and complex platform challenges. I'm the intersection of deep technical credibility and product-level thinking.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:elkinsrayo@gmail.com" class="btn btn-primary">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    Email me
+                </a>
+                <a href="https://www.linkedin.com/in/ray-elkins/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+                    LinkedIn
+                </a>
+                <a href="https://github.com/rayelkins" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+                    GitHub
+                </a>
+                <a href="/resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+                    Resume &darr;
+                </a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- Scripts -->
+<script type="module" src="./main.js"></script>
+
 </body>
-
 </html>

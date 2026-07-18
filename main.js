@@ -1,100 +1,58 @@
 // main.js
 
-function setupThemeToggle() {
-    const toggleBtn = document.getElementById('theme-toggle');
-    if (!toggleBtn) return;
-
-    toggleBtn.addEventListener('click', () => {
-        const isDark = document.documentElement.classList.toggle('dark');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
+// Theme toggle — toggles html.light class (dark is default)
+const toggleBtn = document.getElementById('theme-toggle');
+if (toggleBtn) {
+  toggleBtn.addEventListener('click', () => {
+    const isLight = document.documentElement.classList.toggle('light');
+    try {
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    } catch (e) {}
+  });
 }
 
-function setupNavigation() {
-    const nav = document.getElementById('main-nav');
-    const mobileToggle = document.getElementById('mobile-menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    // Blur on scroll
-    window.addEventListener('scroll', () => {
-        nav.classList.toggle('scrolled', window.scrollY > 50);
-    });
-
-    // Mobile menu toggle
-    if (mobileToggle && mobileMenu) {
-        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-        mobileToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
-            const isOpen = mobileMenu.classList.contains('open');
-            mobileToggle.setAttribute('aria-expanded', isOpen);
-        });
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => mobileMenu.classList.remove('open'));
-        });
+// Scroll reveal — adds .visible to .reveal and .reveal-stagger elements
+const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
     }
+  });
+}, { threshold: 0.15 });
+revealEls.forEach(el => revealObserver.observe(el));
 
-    // Intersection Observer for highlight
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links .nav-link');
-
-    const observerOptions = {
-        root: null,
-        rootMargin: '-60px 0px -50% 0px',
-        threshold: 0
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                navLinks.forEach(link => link.classList.remove('active'));
-                const active = document.querySelector(`.nav-links .nav-link[href="#${entry.target.id}"]`);
-                if (active) active.classList.add('active');
-            }
-        });
-    }, observerOptions);
-
-    sections.forEach(section => observer.observe(section));
-}
-
-function setupExperienceToggle() {
-    const btn = document.getElementById('toggle-experience-btn');
-    const earlierRoles = document.getElementById('earlier-roles');
-
-    if (btn && earlierRoles) {
-        btn.addEventListener('click', () => {
-            const isExpanded = earlierRoles.classList.toggle('expanded');
-            btn.innerHTML = isExpanded ? 'Hide earlier roles &uarr;' : 'Show earlier roles &darr;';
-        });
-    }
-}
-
-function setupScrollReveal() {
-    // Exclude #hero — it's above the fold on load
-    const sections = document.querySelectorAll('section:not(#hero)');
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // fire once
-            }
-        });
-    }, {
-        threshold: 0.08,        // trigger when 8% of section is visible
-        rootMargin: '0px 0px -40px 0px'  // 40px before bottom of viewport
-    });
-
-    sections.forEach(section => {
-        section.classList.add('reveal');
-        observer.observe(section);
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    setupThemeToggle();
-    setupNavigation();
-    setupExperienceToggle();
-    setupScrollReveal();
+// Cursor glow on bento and project cards
+document.querySelectorAll('.bento-card, .project-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--mouse-x', ((e.clientX - rect.left) / rect.width * 100) + '%');
+    card.style.setProperty('--mouse-y', ((e.clientY - rect.top) / rect.height * 100) + '%');
+  });
 });
+
+// Active nav highlighting via IntersectionObserver
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-pill a');
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const match = document.querySelector(`.nav-pill a[href="#${entry.target.id}"]`);
+      if (match) match.classList.add('active');
+    }
+  });
+}, { rootMargin: '-40% 0px -50% 0px' });
+sections.forEach(s => navObserver.observe(s));
+
+// Earlier roles toggle
+const earlierBtn = document.getElementById('toggle-earlier');
+const earlierRoles = document.getElementById('earlier-roles');
+if (earlierBtn && earlierRoles) {
+  earlierBtn.addEventListener('click', () => {
+    const isExpanded = earlierRoles.classList.toggle('expanded');
+    earlierBtn.textContent = isExpanded ? 'Hide earlier roles ↑' : 'Show earlier roles ↓';
+    earlierBtn.setAttribute('aria-expanded', isExpanded);
+  });
+}
