@@ -92,6 +92,21 @@
 </div>
 <div class="noise"></div>
 
+<!-- Announcement Banner -->
+<div class="announcement-banner" id="announcement-banner" role="banner" aria-label="New blog post announcement">
+    <a href="https://aws.amazon.com/blogs/machine-learning/accelerating-ma-due-diligence-with-amazon-bedrock-agentcore/"
+       target="_blank" rel="noopener noreferrer" class="announcement-link">
+        <span class="announcement-icon">🚀</span>
+        <span class="announcement-text">
+            <strong>Check out my latest blog post</strong>
+            <span class="announcement-sep">&mdash;</span>
+            Accelerating M&amp;A due diligence with Amazon Bedrock AgentCore
+        </span>
+        <span class="announcement-arrow">→</span>
+    </a>
+    <button class="announcement-close" id="announcement-close" aria-label="Dismiss announcement">×</button>
+</div>
+
 <!-- Floating Pill Nav -->
 <nav class="nav-pill" aria-label="Site navigation">
     <a href="#hero" class="active">Home</a>
@@ -100,8 +115,8 @@
     <a href="#work">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
-    <!-- F-10: Blog nav slot — v1.1 ready -->
-    <!-- <a href="#writing">Writing</a> -->
+    <!-- F-10: Blog nav slot — v1.1 activated -->
+    <a href="#writing">Writing</a>
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
         <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -522,6 +537,56 @@
                     <span class="skill-pill">Program Governance</span>
                 </div>
             </div>
+
+        </div>
+    </section>
+
+    <!-- WRITING -->
+    <section id="writing" class="section">
+        <div class="section-label">Writing</div>
+        <h2 class="section-heading reveal">Published work.</h2>
+        <div class="writing-grid reveal-stagger">
+
+            <article class="writing-card">
+                <div class="writing-card-inner">
+                    <div class="writing-meta">
+                        <span class="writing-publication">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.625 1.533a.75.75 0 01.75 0l9 5.25a.75.75 0 01.375.65v9.134a.75.75 0 01-.375.65l-9 5.25a.75.75 0 01-.75 0l-9-5.25A.75.75 0 012 16.567V7.433a.75.75 0 01.375-.65l9-5.25z"/></svg>
+                            AWS Machine Learning Blog
+                        </span>
+                        <time class="writing-date" datetime="2026-08-13">Aug 13, 2026</time>
+                    </div>
+
+                    <h3 class="writing-title">
+                        <a href="https://aws.amazon.com/blogs/machine-learning/accelerating-ma-due-diligence-with-amazon-bedrock-agentcore/"
+                           target="_blank" rel="noopener noreferrer">
+                            Accelerating M&amp;A Due Diligence with Amazon Bedrock AgentCore
+                        </a>
+                    </h3>
+
+                    <p class="writing-excerpt">
+                        Mergers and acquisitions move at the speed of capital — but traditional due diligence doesn't.
+                        This post explores how agentic AI, built on Amazon Bedrock AgentCore, can compress weeks of
+                        document-intensive financial and legal analysis into hours, without sacrificing the auditability
+                        and explainability that enterprise stakeholders demand.
+                    </p>
+
+                    <div class="writing-footer">
+                        <div class="writing-tags">
+                            <span class="writing-tag">Agentic AI</span>
+                            <span class="writing-tag">Amazon Bedrock</span>
+                            <span class="writing-tag">AgentCore</span>
+                            <span class="writing-tag">Technical Writing</span>
+                        </div>
+                        <a href="https://aws.amazon.com/blogs/machine-learning/accelerating-ma-due-diligence-with-amazon-bedrock-agentcore/"
+                           target="_blank" rel="noopener noreferrer"
+                           class="writing-cta">
+                            Read on AWS
+                            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
 
         </div>
     </section>

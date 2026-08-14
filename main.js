@@ -56,3 +56,32 @@ if (earlierBtn && earlierRoles) {
     earlierBtn.setAttribute('aria-expanded', isExpanded);
   });
 }
+
+// Announcement banner — dismiss with 90-day expiry
+const banner = document.getElementById('announcement-banner');
+const bannerClose = document.getElementById('announcement-close');
+const BANNER_KEY = 'bannerDismissed_v1';
+const BANNER_TTL_DAYS = 90;
+
+if (banner) {
+  try {
+    const stored = localStorage.getItem(BANNER_KEY);
+    if (stored) {
+      const dismissedAt = parseInt(stored, 10);
+      const msElapsed = Date.now() - dismissedAt;
+      const daysElapsed = msElapsed / (1000 * 60 * 60 * 24);
+      if (daysElapsed < BANNER_TTL_DAYS) {
+        banner.classList.add('hidden');
+      } else {
+        localStorage.removeItem(BANNER_KEY);
+      }
+    }
+  } catch (e) {}
+}
+
+if (bannerClose && banner) {
+  bannerClose.addEventListener('click', () => {
+    banner.classList.add('hidden');
+    try { localStorage.setItem(BANNER_KEY, Date.now().toString()); } catch (e) {}
+  });
+}
